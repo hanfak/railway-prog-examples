@@ -5,13 +5,14 @@ import domain.helpers.ApplicationProcessHelper;
 import static domain.helpers.ApplicationProcessHelper.candidateToConsider;
 
 public class ApplicationUsecase {
-    public void decidingToInterview(String name, Integer age, Boolean crimalConviction, String degreeType) {
-        candidateToConsider(name,age,crimalConviction,degreeType)
-                .ifHappy()
-                        .peek(ApplicationProcessHelper::checkForBogusCandidate)
+
+    @SuppressWarnings("SameParameterValue")
+    public void decidingToInterview(String name, Integer age, Boolean criminalConviction, String degreeType) {
+        candidateToConsider(name, age, criminalConviction, degreeType)
+                    .peek(ApplicationProcessHelper::checkForBogusCandidate)
                     .then(ApplicationProcessHelper::checkAge)
-                        .peek(ApplicationProcessHelper::reportHappyOutCome)
-                    .then(ApplicationProcessHelper::offerJob)
+                    .peek(ApplicationProcessHelper::reportHappyOutCome)
+                    .then(ApplicationProcessHelper::offerJob) // Returns HappyPath which is dealt with below
                 .ifHappy()
                     .peek(ApplicationProcessHelper::reportHappyOutCome)
                 .ifSad()

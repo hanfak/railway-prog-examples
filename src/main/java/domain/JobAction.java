@@ -12,14 +12,13 @@ public class JobAction extends ValueType {
     public final String actionType;
     public final Boolean shouldFire;
 
-
     private JobAction(ZonedDateTime timeOfAction, String actionType, Boolean shouldFire) {
         this.timeOfAction = timeOfAction;
         this.actionType = actionType;
         this.shouldFire = shouldFire;
     }
 
-    public static JobAction jobAction(ZonedDateTime timeOfAction, String actionType, Boolean shouldFire) {
+    private static JobAction jobAction(ZonedDateTime timeOfAction, String actionType, Boolean shouldFire) {
         return new JobAction(timeOfAction, actionType, shouldFire);
     }
 

@@ -12,6 +12,7 @@ import static io.github.theangrydev.businessflows.HappyPath.sadPath;
 import static java.lang.String.format;
 
 public class ApplicationProcessHelper {
+
     public static String candidateAccepts;
 
     public static void reportHappyOutCome(JobOffer jobOffer) {
@@ -42,7 +43,6 @@ public class ApplicationProcessHelper {
 
     public static void reportSadOutcome(JobRejection jobRejection) {
         System.out.println(format("%s's outcome was negative because '%s'", jobRejection.name,jobRejection.reason));
-
     }
 
     public static HappyPath<Candidate, JobRejection> checkAge(Candidate candidate) {

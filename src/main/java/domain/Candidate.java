@@ -1,11 +1,12 @@
 package domain;
 
+@SuppressWarnings("ALL")
 public class Candidate extends ValueType {
 
     public final String name;
     public final Integer age;
-    public final Boolean crimalConviction;
-    public final String degreeType;
+    private final Boolean crimalConviction;
+    private final String degreeType;
 
     public Candidate(String name, Integer age, Boolean crimalConviction, String degreeType) {
         this.name = name;

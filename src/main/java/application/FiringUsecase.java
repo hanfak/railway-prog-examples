@@ -15,13 +15,13 @@ public class FiringUsecase {
                 .join(this::promote, this::fire);
     }
 
+    private JobAction checkJob(JobAction action) {
+        return action;
+    }
+
     private EmployerAction promote(JobAction jobAction) {
         System.out.println(format("Good work on %s, carry on and you will get promotoed", jobAction.actionType));
         return new EmployerAction("nothing");
-    }
-
-    private JobAction checkJob(JobAction action) {
-        return action;
     }
 
     private EmployerAction fire(FiringReason firingReason) {
